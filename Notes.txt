@@ -1,0 +1,53 @@
+A. Initializing the project
+
+1. Backend:
+
+a. cd into backend folder
+b. run 'npm init -y' (this command will create a package.json file for the backend)
+c. run 'npm install express mongoose dotenv cors bcryptjs jsonwebtoken nodemon' (this command will install the required backend dependencies)
+
+2. Frontend:
+
+a. npm create vite@latest frontend -- --template react (this command initializes a react project using vite and creates a folder)
+b. cd into frontend folder
+c. run 'npm install axios react-redux @reduxjs/toolkit react-router-dom bootstrap' (this command will install the required frontend dependencies)
+
+3. Configure run command
+
+a. npm install concurrently --save-dev (make sure you are in the root folder)
+b. add the following scripts to the package.json file in the root folder under 'scripts': 
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && nodemon server.js",
+    "client": "cd frontend && npm run dev"
+
+run npm run start to start both the backend and frontend servers.
+
+B. Backend setup:
+
+1. models:
+
+    - This folder contains our Mongoose models. (structure of the data we are going to store in the database)
+    - Keeps data logic isolated and reusable.
+
+2. routes: 
+
+    - This folder contains all the HTTP route definitions. 
+    - Each file defines how to respond to specific URL paths. 
+
+3. controllers:
+
+    - This folder contains the functions that are ran when a route is called.
+    - Basically, the logic that responds to API calls. 
+
+4. middleware:
+
+    - This folder contains the functions that run before our routes.
+    - Often used to chekc for authentication. 
+
+C. Random notes:
+
+1. async (req, res) => {} is an arrow function that takes in two parameters, req and res.
+    - req is the request object that holds data about the incoming HTTP request (headers, body, params).
+    - res is the response object that sends data back to the client.
+    - The 'async' keyword allows us to use 'await' inside the function.
+    - 'await' pauses the function until a Promose (database query, API calls) finishes, making async code look synchronous and easier to manage. 
