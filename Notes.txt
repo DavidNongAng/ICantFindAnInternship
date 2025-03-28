@@ -51,3 +51,19 @@ C. Random notes:
     - res is the response object that sends data back to the client.
     - The 'async' keyword allows us to use 'await' inside the function.
     - 'await' pauses the function until a Promose (database query, API calls) finishes, making async code look synchronous and easier to manage. 
+
+
+2. Redux: 
+    A. What is Redux?
+    - Redux is a state management library used in React to manage and centralize application state (the app's memory).
+    - It stores data rather than passing it down through props or re-fetching it across components, it puts it in one location called the Store.
+    - Its main components are the Store, Slice, Actions, Reducers. 
+
+    a. Store: Central place that holds the global state of the app. (store.js)\
+    b. Slice: A piece of the global state + reducers to update it. (authSlice.js, internshipSlice.js)
+    c. Action: Functions that describe "what happened" and triggers reducers. (login(), logout())
+    d. Reducers: Function that updates the state based on the action. (inside the slice)
+
+    B Why is this useful?
+    - It determines what the user sees based on the state of the app. (Ex. loggedIn and loggedOut will display different components)
+    

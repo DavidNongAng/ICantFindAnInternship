@@ -1,13 +1,12 @@
-import { useState } from 'react'
+import React from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-       
-    </>
+    <div>
+      <h1>ICantFindAnInternship</h1>
+      <p>This is the starting point of ICantFindAnInternship! </p>
+    </div>
   );
-}
+};
 
-export default App
+export default App;
