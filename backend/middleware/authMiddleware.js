@@ -5,6 +5,7 @@
  */
 
 const jwt = require('jsonwebtoken');
+const User = require('../models/User');
 
 const authMiddleware = (req, res, next) => {
     //Extract token from header
@@ -22,7 +23,6 @@ const authMiddleware = (req, res, next) => {
         const decoded = jwt.verify(token, process.env.JWT_SECRET); // .verify is a JWT method that checks if the token is valid
         req.user = decoded.userId; // Attach the userId from the token payload to req.user
         next(); // Pass control to the next middleware or route handler
-
     }catch(err){
         console.error('JWT verification error:', err.message);
         res.status(403).json({ message: 'Unauthorized: Invalid Token.' });

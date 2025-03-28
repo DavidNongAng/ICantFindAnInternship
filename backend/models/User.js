@@ -35,7 +35,6 @@ const userSchema = new mongoose.Schema({
             url: String,
             isExpired: {
                 type: Boolean,
-                default: false, // Assume not expired when saved
             },
             savedAt: {
                 type: Date,
