@@ -3,21 +3,24 @@
 */
 
 .jobs-main{
-    padding: 2rem;
-    background-color: #F5F5F5;
-    min-height: 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0; /* Or keep some side padding if you like, but remove top/bottom if you want continuous color. */
+  background-color: #F5F5F5;
+  min-height: 100vh;
+  box-sizing: border-box;
  }
 
 
 .jobs-header {
     text-align: center;
-    padding: 4rem 1rem;
-    background-color: #2B4593; /* Indigo-600 */
     color: white;
-    border-radius: 1rem;
+    background-color: #2B4593; /* Indigo-600 */
+    margin: 0;                /* No extra space on top/bottom */
+    padding: 4rem 4rem;       /* Same padding as Home hero */
+    width: 100%;              /* Full width */
+    box-sizing: border-box;   /* Respect padding inside width */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    margin-bottom: 3rem;
+    margin-bottom: 3rem; 
  }
 
  .jobs-title {

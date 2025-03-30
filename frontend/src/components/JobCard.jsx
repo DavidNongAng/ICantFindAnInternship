@@ -18,7 +18,7 @@ const JobCard = ({job}) => {
 
     return(
             <div className="job-card">
-                <p className="job-type">{contract_time ? contract_time.charAt(0).toUpperCase()+ contract_time.slice(1): 'Internship'}</p> {/* Checks if it exists, and removes the rest of the string after the first character */}
+                <p className="job-type">{contract_time ? contract_time.charAt(0).toUpperCase()+ contract_time.slice(1): 'Internship'}</p> Checks if it exists, and removes the rest of the string after the first character
                 <h3 className="job-title">{title}</h3>
                 <p className="job-company">{company.display_name}</p>
                 <p className="job-location">{location.display_name}</p>

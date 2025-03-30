@@ -8,18 +8,18 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // re
 import Home from './pages/Home';
 import Jobs from './pages/Jobs';
 // import Account from './pages/Account';
-// import NotFound from './pages/NotFound';
-// import Navbar from './components/Navbar';
+import NotFound from './pages/NotFound';
+import Navbar from './components/Navbar';
 
 const App = () => {
   return(
     <Router>
-      {/* <Navbar /> Displays the navbar on all pages */}
+      <Navbar />
       <Routes>
         <Route path = "/" element = {<Home/>}/>
         <Route path = "/jobs" element = {<Jobs/>}/>
         {/* <Route path = "/account" element = {<Account/>}/> */}
-        {/* <Route path = "*" element = {<NotFound/>}/>   Catch all route for 404 error */}
+        <Route path = "*" element = {<NotFound/>}/>   
       </Routes>
       {/* <Footer/> */}
     </Router>
