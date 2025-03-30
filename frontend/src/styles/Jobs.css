@@ -79,3 +79,18 @@
     color: #444;
   }
 
+  .job-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem 0;
+    justify-items: center;
+}
+
+/* Center when only one card is present */
+.job-grid:has(> .job-card:only-child) {
+    justify-content: center;
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+}
