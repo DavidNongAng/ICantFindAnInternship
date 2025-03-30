@@ -47,12 +47,8 @@ body {
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
-.recent-jobs-description {
-  font-size: 1rem;
-  color: #4b5563; /* Gray-700 */
-}
 
-.job-grid {
+.recent-jobs-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
@@ -60,3 +56,15 @@ body {
   justify-items: center;
 }
 
+/* Center grid if only one card is displayed */
+.recent-jobs-grid:has(> .job-card:only-child) {
+  justify-content: center;
+  grid-template-columns: 1fr;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Limit to 6 items max */
+.recent-jobs .job-card:nth-child(n+7) {
+  display: none;
+}
