@@ -5,10 +5,10 @@
     background-color: #2B4593; /* Indigo-600 */
     padding: 1rem 2rem;
     color: white;
-    margin: 0;              /* Remove spacing above/below */
     width: 100%;           /* Full viewport width */
     box-sizing: border-box; /* Include padding in the width */
     border-bottom: 1px solid #6280da;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
     
   .navbar-logo a {
@@ -45,3 +45,63 @@
     height: 50px;
     object-fit: contain;
   }
+
+  /* Dropdown Container */
+.dropdown-container {
+  position: relative;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  color: #1f2937;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  z-index: 1001;
+  margin-top: 0.5rem;
+}
+
+/* Dropdown Items */
+.dropdown-menu li {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #1f2937;          /* text color */
+}
+
+/* Links inside list items */
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #1f2937;          /* ensure links match text color */
+  display: block;
+  width: 100%;
+}
+
+.dropdown-menu li a:hover,
+.dropdown-menu li:hover {
+  background-color: #f3f4f6;
+}
+
+.dropdown-email {
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+  color: #374151;
+}
+
+/* Button */
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}

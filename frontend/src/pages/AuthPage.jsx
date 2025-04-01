@@ -4,22 +4,27 @@
  *  Implemented firebase authentification for google logins. 
  */
 
-import React, { useState } from 'react';
-import { auth, provider } from '../firebase';
-import { signInWithPopup } from 'firebase/auth';
+import React, { useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser, registerUser } from '../redux/slices/authSlice';
 import '../styles/AuthPage.css';
 
 const AuthPage = () => {
-    const [ isLogin, setIsLogin ] = useState(true);
 
-    const handleGoogleLogin = async () => {
-        try{
-            const result = await signInWithPopup(auth, provider);
-            const user = result.user;
-            console.log('User signed in: ', user);
-            // Send info to backend
-        }catch(err){
-            console.error('Google sign-in error: ', err );
+    // State Management
+    const [ isLogin, setIsLogin ] = useState(true);
+    const [ email, setEmail ] = useState('');
+    const [ password, setPassword ] = useState('');
+    const dispatch = useDispatch();    
+    const { loading, error } = useSelector((state) => state.auth);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const credentials = { email, password };
+        if(isLogin){
+            dispatch(loginUser(credentials));
+        }else{
+            dispatch(registerUser(credentials));
         }
     };
 
@@ -28,10 +33,27 @@ const AuthPage = () => {
             <div className="auth-box">
                 <h2>{isLogin ? 'Login' : 'Register'}</h2>
 
-                {/* Google Auth Button */}
-                <button onClick={handleGoogleLogin} className="google-button">
-                    Continue with Google 
-                </button>
+                <form onSubmit={handleSubmit} className="auth-form">
+                    <input 
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                    <input 
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <button type="submit" className="auth-button" disabled={loading}>
+                        {isLogin ? 'Login' : 'Register'}
+                    </button>
+                </form>
+
+                {error && <p className="auth-error">{error}</p>}
 
                 {/* Toggle View */}
                 <p onClick={() => setIsLogin(!isLogin)} className="toggle-mode">

@@ -26,6 +26,17 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (credentials, 
     }
 });
 
+//Async redux action for registering a user.
+export const registerUser = createAsyncThunk('auth/registerUser', async (userData, thunkAPI) => {
+    try{
+        const response = await axios.post('/api/auth/register', userData);
+        localStorage.setItem('token', response.data.token);
+        return response.data;
+    }catch(err){
+        return thunkAPI.rejectWithValue(err.response.data.message || 'Registration failed');
+    }
+})
+
 // Redux slice for authentication
 const authSlice = createSlice({
     name: 'auth',
@@ -41,6 +52,8 @@ const authSlice = createSlice({
     extraReducers: (builder) => {
         // builder is a callback that adds reducers to the slice. 
         builder
+
+            // Login reducers
             // .addCase is a redux method used to define how the slice should respond to specific actions. 
             .addCase(loginUser.pending, (state) => {  // while login is in progress.
                 state.loading = true;
@@ -54,6 +67,21 @@ const authSlice = createSlice({
             .addCase(loginUser.rejected, (state, action) => { //when login fails.
                 state.loading = false;
                 state.error = action.payload;
+            })
+
+            // Register reducers
+            .addCase(registerUser.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(registerUser.fulfilled, (state, action) => {
+                state.loading = false;
+                state.user = action.payload.user;
+                state.token = action.payload.token;
+            })
+            .addCase(registerUser.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload;
             });
     },
 });
@@ -63,6 +91,3 @@ export const { logout } = authSlice.actions;
 
 // Export reducer to be used in the store. 
 export default authSlice.reducer;
-
-
-

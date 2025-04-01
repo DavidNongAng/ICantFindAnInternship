@@ -1,0 +1,79 @@
+/* AuthPage.css */
+
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+    background-color: #f5f5f5;
+    padding: 2rem;
+  }
+  
+  .auth-box {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .auth-box h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #2b4593;
+  }
+  
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .auth-form input {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .auth-form input:focus {
+    border-color: #2b4593;
+  }
+  
+  .auth-button {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    background-color: #2b4593;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .auth-button:hover {
+    background-color: #1e336e;
+  }
+  
+  .auth-error {
+    margin-top: 1rem;
+    color: #d93025;
+    font-weight: 500;
+  }
+  
+  .toggle-mode {
+    margin-top: 1.5rem;
+    color: #2b4593;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+  }
+  
+  .toggle-mode:hover {
+    color: #1e336e;
+  }
